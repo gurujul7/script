@@ -1,0 +1,56 @@
+#/bin/bash
+
+
+date  ## echo the date at start
+
+#Dumping script name
+echo -e "You are running $0\n"
+
+#creating directory
+echo -e  "Creating new directory\n"
+
+mkdir -p  /tmp/Yoti
+ls -ld /tmp/Yoti
+
+#Creating file
+
+echo -e "Creating new file\n"
+
+touch /tmp/Yoti/test.txt
+ls -lrt /tmp/Yoti/test.txt
+
+#List of every file and folder name present in running folder
+
+echo -e "\nList of files under running folder\n"
+
+path=`pwd`
+
+ls -lrt $path
+
+#Public IP
+
+echo -e "\nPublic IP\n"
+
+hostname=`hostname -i`
+echo $hostname
+
+#RAM 
+
+echo -e "\nRAM space"
+
+ram=`free -g`
+echo -e "$ram"
+
+#PID
+
+echo -e "\nPid details and user running script"
+
+pid=`pgrep -f $0`
+echo -e " PID details :$pid\n" 
+
+user=`whoami`
+echo -e "User running script : $user\n" 
+
+
+
+date  ## echo the date at end
